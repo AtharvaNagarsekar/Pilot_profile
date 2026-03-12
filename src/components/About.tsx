@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ShieldCheck, Crosshair, Users, Globe2, Layers, Briefcase, Wifi, Trophy, Star } from "lucide-react";
+import { Globe2, Layers, Briefcase, Trophy, Star } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -23,14 +23,6 @@ export const About = () => {
   const headerY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-6%"]);
   const lineY   = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
-  const coreQualities = [
-    { icon: ShieldCheck, label: "Safety First",          desc: "Uncompromising commitment to operational discipline and aviation safety.", color: "text-amber-400",   border: "hover:border-amber-400/30", glow: "hover:shadow-[0_0_30px_rgba(245,158,11,0.1)]" },
-    { icon: Crosshair,   label: "Decision-Making",       desc: "Calm, precise execution in high-pressure environments.",                 color: "text-sky-400",     border: "hover:border-sky-400/30",   glow: "hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]" },
-    { icon: Wifi,        label: "Situational Awareness",  desc: "Constant environmental scan and proactive threat management.",           color: "text-cyan-400",    border: "hover:border-cyan-400/30",  glow: "hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]" },
-    { icon: Users,       label: "Crew Resource Mgmt",    desc: "Effective communication and leadership across crew operations.",          color: "text-emerald-400", border: "hover:border-emerald-400/30", glow: "hover:shadow-[0_0_30px_rgba(52,211,153,0.1)]" },
-  ];
-
-  const skills = ["Leadership", "Problem Solving", "Teamwork", "Decision-Making", "Corporate Communication", "Time Management", "Adaptability"];
   const languages = ["English", "Hindi", "Marathi", "Konkani"];
 
   const education = [
@@ -53,7 +45,7 @@ export const About = () => {
   ];
 
   return (
-    <div ref={ref} id="about" className="relative bg-[#0a0f1e] py-28 px-6 md:px-20 text-white z-20 border-t border-white/5 overflow-hidden">
+    <div ref={ref} id="about" className="relative bg-white dark:bg-[#0a0f1e] py-28 px-6 md:px-20 text-slate-900 dark:text-white z-20 border-t border-slate-200 dark:border-white/5 overflow-hidden transition-colors duration-300">
 
       {/* ── Parallax ambient blobs ── */}
       <motion.div style={{ y: blob1Y }}
@@ -68,12 +60,12 @@ export const About = () => {
       {/* ── Section header ── */}
       <motion.div style={{ y: headerY }} className="max-w-7xl mx-auto mb-20">
         <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-          className="text-sky-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">
+          className="text-sky-500 dark:text-sky-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">
           — The Pilot
         </motion.p>
         <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} variants={fadeUp}
-          className="text-5xl md:text-7xl font-bold tracking-tighter"
-          style={{ background: "linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.35) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-transparent"
+          style={{ background: "var(--about-header-bg, linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.35) 100%))", WebkitBackgroundClip: "text", WebkitTextFillColor: "var(--about-header-fill, transparent)" }}>
           About Me
         </motion.h2>
       </motion.div>
@@ -98,23 +90,20 @@ export const About = () => {
                 Data Science at DJSCE (CGPA 9.35) — positioning me as the next-generation aviator who
                 can harness AI to redefine how pilots train, communicate, and operate.
               </p>
+              <div className="pt-4">
+                <a
+                  href="/resume.pdf"
+                  download="Atharva_Nagarsekar_CV.pdf"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-500/10 text-sky-400 border border-sky-500/20 hover:bg-sky-500/20 hover:border-sky-500/40 rounded-full font-medium transition-all duration-300 shadow-[0_4px_14px_0_rgba(56,189,248,0.1)] hover:shadow-[0_6px_20px_rgba(56,189,248,0.2)]"
+                >
+                  <Briefcase size={16} />
+                  <span>Download CV</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 
-          {/* Core qualities */}
-          <div>
-            <h3 className="text-xs font-bold tracking-[0.3em] text-white/30 uppercase mb-6">Core Qualities</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {coreQualities.map((q, i) => (
-                <motion.div key={q.label} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
-                  className={`card-3d p-5 rounded-2xl glass border border-white/5 ${q.border} ${q.glow} transition-all duration-300 group cursor-default`}>
-                  <q.icon className={`${q.color} mb-3 group-hover:scale-110 transition-transform duration-300`} size={22} />
-                  <h4 className="font-semibold text-sm mb-1">{q.label}</h4>
-                  <p className="text-xs text-white/40 leading-relaxed">{q.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+
 
           {/* Experience */}
           <div>
@@ -171,24 +160,7 @@ export const About = () => {
         {/* ════ RIGHT COLUMN ════ */}
         <div className="md:w-1/2 space-y-14">
 
-          {/* Skills */}
-          <div>
-            <h3 className="flex items-center gap-2 text-xs font-bold tracking-[0.3em] text-white/30 uppercase mb-5">
-              <Users size={14} /> Core Skills
-            </h3>
-            <div className="flex flex-wrap gap-2.5">
-              {skills.map((skill, i) => (
-                <motion.span key={skill}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.04, duration: 0.4, ease: "easeOut" as const }}
-                  className="bg-white/[0.04] border border-white/8 px-4 py-2 rounded-xl text-sm font-medium hover:bg-sky-400/10 hover:border-sky-400/30 hover:text-sky-300 hover:scale-105 transition-all duration-200 cursor-default">
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
-          </div>
+
 
           {/* Languages */}
           <div>

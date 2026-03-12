@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -13,6 +14,11 @@ export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const unsub = scrollY.on("change", (v) => setScrolled(v > 60));
@@ -26,8 +32,8 @@ export const Nav = () => {
       transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0a0f1e]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
-          : "bg-transparent"
+          ? "bg-white/90 dark:bg-[#0a0f1e]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm dark:shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+          : "bg-transparent text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
@@ -52,7 +58,7 @@ export const Nav = () => {
           </div>
           <div>
             <span
-              className="text-white font-semibold tracking-widest text-sm uppercase"
+              className={`font-semibold tracking-widest text-sm uppercase ${scrolled ? "text-slate-900 dark:text-white" : "text-white"}`}
               style={{ fontFamily: "var(--font-bebas)", fontSize: "1.1rem", letterSpacing: "0.12em" }}
             >
               Atharva
@@ -69,30 +75,39 @@ export const Nav = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-white/50 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors duration-200 relative group"
+              className={`text-sm font-medium tracking-widest uppercase transition-colors duration-200 relative group ${
+                scrolled ? "text-slate-500 hover:text-slate-900 dark:text-white/50 dark:hover:text-white" : "text-white/70 hover:text-white"
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-sky-400 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
           <a
-            href="mailto:nagarsekaratharva@gmail.com"
-            className="px-5 py-2 rounded-full border border-amber-400/40 text-amber-400 text-xs font-semibold tracking-widest uppercase hover:bg-amber-400/10 hover:border-amber-400/70 transition-all duration-200"
+            className={`px-5 py-2 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all duration-200 ${
+              scrolled 
+                ? "border-amber-500/40 text-amber-600 hover:bg-amber-500/10 hover:border-amber-500/70 dark:border-amber-400/40 dark:text-amber-400 dark:hover:bg-amber-400/10 dark:hover:border-amber-400/70"
+                : "border-amber-400/40 text-amber-400 hover:bg-amber-400/10 hover:border-amber-400/70"
+            }`}
           >
             Hail Frequency
           </a>
+          
+          {mounted && <ThemeToggle />}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-        >
-          <span className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          {mounted && <ThemeToggle />}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+          >
+            <span className={`w-6 h-px transition-all duration-300 ${scrolled ? "bg-slate-900 dark:bg-white" : "bg-white"} ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`w-6 h-px transition-all duration-300 ${scrolled ? "bg-slate-900 dark:bg-white" : "bg-white"} ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`w-6 h-px transition-all duration-300 ${scrolled ? "bg-slate-900 dark:bg-white" : "bg-white"} ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -100,21 +115,20 @@ export const Nav = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#0a0f1e]/95 backdrop-blur-xl border-t border-white/5 px-6 py-6 flex flex-col gap-4"
+          className="md:hidden bg-white/95 dark:bg-[#0a0f1e]/95 backdrop-blur-xl border-t border-black/5 dark:border-white/5 px-6 py-6 flex flex-col gap-4"
         >
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-white/70 hover:text-white text-base font-medium tracking-widest uppercase py-2"
+              className="text-slate-600 hover:text-slate-900 dark:text-white/70 dark:hover:text-white text-base font-medium tracking-widest uppercase py-2"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="mailto:nagarsekaratharva@gmail.com"
-            className="mt-2 px-5 py-3 rounded-full border border-amber-400/40 text-amber-400 text-sm font-semibold tracking-widest uppercase text-center"
+            className="mt-2 px-5 py-3 rounded-full border border-amber-500/40 text-amber-600 dark:border-amber-400/40 dark:text-amber-400 text-sm font-semibold tracking-widest uppercase text-center"
           >
             Hail Frequency
           </a>

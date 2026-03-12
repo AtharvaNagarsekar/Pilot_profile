@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Github, Plane, Mail, Linkedin } from "lucide-react";
+import { ArrowUpRight, Github, Plane } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -78,7 +78,7 @@ export const Projects = () => {
   const headerY = useTransform(scrollYProgress, [0, 0.4], ["0%", "-5%"]);
 
   return (
-    <div ref={ref} className="relative min-h-screen bg-[#060a14] py-28 px-6 md:px-20 text-white z-20 overflow-hidden">
+    <div ref={ref} className="relative min-h-screen bg-white dark:bg-[#060a14] py-28 px-6 md:px-20 text-slate-900 dark:text-white z-20 overflow-hidden transition-colors duration-300">
 
       {/* ── Parallax ambient blobs ── */}
       <motion.div style={{ y: blob1Y }}
@@ -102,8 +102,8 @@ export const Projects = () => {
             <div className="max-w-2xl">
               <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="text-5xl md:text-7xl font-bold tracking-tighter mb-4"
-                style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em", background: "linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-slate-900 dark:text-transparent"
+                style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em", background: "var(--projects-header-bg, linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%))", WebkitBackgroundClip: "text", WebkitTextFillColor: "var(--projects-header-fill, transparent)" }}>
                 Selected Works
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -238,55 +238,7 @@ export const Projects = () => {
           })}
         </div>
 
-        {/* ── Contact / Footer ── */}
-        <div id="contact" className="mt-40 relative">
-          {/* Horizon line */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-20" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">— Open a Channel</p>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6"
-              style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em", background: "linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              Let&apos;s Connect
-            </h2>
-            <p className="text-white/40 text-lg font-light max-w-xl mx-auto">
-              Whether it&apos;s about aviation, AI systems, or a shared passion for flight — I&apos;d love to hear from you.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
-          >
-            <a href="mailto:nagarsekaratharva@gmail.com"
-              className="flex items-center gap-3 px-8 py-4 rounded-full bg-amber-400 text-black font-semibold text-sm hover:bg-amber-300 hover:scale-105 transition-all duration-200 shadow-[0_0_40px_rgba(245,158,11,0.3)]">
-              <Mail size={18} /> nagarsekaratharva@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/atharva-nagarsekar-9699a9207/" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-3 px-8 py-4 rounded-full border border-sky-400/30 text-sky-400 text-sm font-semibold hover:bg-sky-400/10 hover:border-sky-400/60 hover:scale-105 transition-all duration-200">
-              <Linkedin size={18} /> LinkedIn
-            </a>
-          </motion.div>
-
-          {/* Footer strip */}
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-white/25 text-xs gap-4">
-            <p>© 2026 Atharva Nagarsekar · Mumbai, India · Aspiring Future Captain</p>
-            <div className="flex gap-6">
-              <a href="https://www.linkedin.com/in/atharva-nagarsekar-9699a9207/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">LinkedIn</a>
-              <a href="mailto:nagarsekaratharva@gmail.com" className="hover:text-white transition-colors">Email</a>
-              <a href="https://github.com/AtharvaNagarsekar" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

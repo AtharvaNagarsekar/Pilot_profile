@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { RefreshCcw, ChevronRight } from "lucide-react";
 
 const stats = [
   { value: "9.35", label: "CGPA", unit: "" },
@@ -19,6 +20,8 @@ const missionItems = [
     color: "from-amber-400/20 to-amber-400/0",
     border: "border-amber-400/20 hover:border-amber-400/50",
     glow: "shadow-[0_0_60px_rgba(245,158,11,0.07)]",
+    backBg: "bg-amber-500/10",
+    accent: "text-amber-500",
   },
   {
     heading: "AI Meets Aviation",
@@ -28,6 +31,8 @@ const missionItems = [
     color: "from-sky-400/20 to-sky-400/0",
     border: "border-sky-400/20 hover:border-sky-400/50",
     glow: "shadow-[0_0_60px_rgba(56,189,248,0.07)]",
+    backBg: "bg-sky-500/10",
+    accent: "text-sky-500",
   },
   {
     heading: "Built for the Long Haul",
@@ -37,8 +42,66 @@ const missionItems = [
     color: "from-cyan-400/20 to-cyan-400/0",
     border: "border-cyan-400/20 hover:border-cyan-400/50",
     glow: "shadow-[0_0_60px_rgba(34,211,238,0.07)]",
+    backBg: "bg-cyan-500/10",
+    accent: "text-cyan-500",
   },
 ];
+
+const FlipCard = ({ item, i }: { item: typeof missionItems[0]; i: number }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.12, duration: 0.7, ease: "easeOut" as const }}
+      className="perspective-1000 w-full h-[320px] cursor-pointer group"
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <motion.div
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.7, type: "spring", stiffness: 80, damping: 15 }}
+        className="relative w-full h-full preserve-3d"
+      >
+        {/* --- FRONT: HEADING & ICON --- */}
+        <div className="absolute inset-0 backface-hidden">
+          <div className={`w-full h-full flex flex-col items-center justify-center p-8 rounded-[2rem] border bg-gradient-to-br ${item.color} ${item.border} ${item.glow} backdrop-blur-md transition-all duration-500`}>
+            {/* Floating icon */}
+            <div className="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500">
+              {item.icon}
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-slate-800 dark:text-white leading-tight" style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em" }}>
+              {item.heading}
+            </h3>
+            <div className={`mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${item.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
+              Inquire Deeply <ChevronRight size={12} />
+            </div>
+          </div>
+        </div>
+
+        {/* --- BACK: ELABORATION --- */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180">
+          <div className={`w-full h-full flex flex-col items-center justify-center p-10 rounded-[2rem] border border-sky-400/20 ${item.backBg} backdrop-blur-xl text-center shadow-2xl overflow-hidden relative`}>
+             <div className="absolute top-6 right-6 opacity-20">
+               <RefreshCcw size={20} className="animate-spin-slow" />
+             </div>
+             
+             <h4 className={`text-xs font-bold uppercase tracking-[0.3em] mb-6 ${item.accent}`}>Operational Insight</h4>
+             
+             <p className="text-sm md:text-base dark:text-white/80 text-slate-700 leading-relaxed font-medium">
+               {item.body}
+             </p>
+             
+             <div className={`mt-8 text-[9px] uppercase font-bold tracking-[0.4em] ${item.accent} opacity-50`}>
+               Click to return to base
+             </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export const MissionSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,7 +113,7 @@ export const MissionSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
 
   return (
-    <section ref={ref} className="relative bg-[#060a14] overflow-hidden py-32 px-6 md:px-20">
+    <section ref={ref} className="relative bg-white dark:bg-[#060a14] overflow-hidden py-32 px-6 md:px-20 transition-colors duration-300">
       {/* Parallax ambient blobs */}
       <motion.div
         style={{ y: blob1Y }}
@@ -106,7 +169,7 @@ export const MissionSection = () => {
         >
           <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-semibold mb-3">— Flight Mission</p>
           <h2
-            className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-white to-white/30 leading-none"
+            className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-white/30 leading-none transition-colors"
             style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em" }}
           >
             Why I Fly
@@ -116,24 +179,7 @@ export const MissionSection = () => {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {missionItems.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.7, ease: "easeOut" as const }}
-              className={`relative p-7 md:p-8 rounded-[1.5rem] border bg-gradient-to-br ${item.color} ${item.border} ${item.glow} backdrop-blur-sm overflow-hidden group transition-all duration-500`}
-            >
-              {/* Floating icon */}
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">{item.heading}</h3>
-              <p className="text-white/55 leading-relaxed text-sm md:text-base">{item.body}</p>
-
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-white/[0.02] rounded-bl-[3rem]" />
-            </motion.div>
+            <FlipCard key={i} item={item} i={i} />
           ))}
         </div>
       </div>
