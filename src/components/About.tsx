@@ -89,12 +89,12 @@ export const About = () => {
             <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.7)]" />
             <div className="text-lg text-white/65 leading-[1.95] font-light space-y-5">
               <p>
-                I'm a highly motivated aspiring commercial pilot with a strong commitment to aviation safety
+                I&apos;m a highly motivated aspiring commercial pilot with a strong commitment to aviation safety
                 and operational discipline. I excel in high-responsibility environments requiring calm
                 decision-making, effective communication, and strong situational awareness.
               </p>
               <p>
-                Alongside my pursuit of wings, I'm completing a B.Tech in Artificial Intelligence &
+                Alongside my pursuit of wings, I&apos;m completing a B.Tech in Artificial Intelligence &
                 Data Science at DJSCE (CGPA 9.35) — positioning me as the next-generation aviator who
                 can harness AI to redefine how pilots train, communicate, and operate.
               </p>

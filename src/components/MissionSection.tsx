@@ -45,7 +45,6 @@ export const MissionSection = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   // Parallax layers
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
   const blob1Y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
   const blob2Y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);

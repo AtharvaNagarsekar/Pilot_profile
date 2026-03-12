@@ -153,13 +153,15 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* MID — headline with horizontal word shear */}
         <motion.div style={{ opacity: p2MidOpacity, y: p2MidY, scale: p2MidScale }}>
           <div className="overflow-hidden leading-none">
-            <motion.span style={{ x: p2LeftX, display: "inline-block" }}
+            <motion.span 
               className="text-white uppercase"
-              style={{ fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
+              style={{ x: p2LeftX, display: "inline-block", fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
               Cleared{" "}
             </motion.span>
-            <motion.span style={{ x: p2RightX, display: "inline-block" }}
+            <motion.span 
               style={{
+                x: p2RightX, 
+                display: "inline-block",
                 fontFamily: displayFont,
                 fontSize: "clamp(3.5rem, 10vw, 9rem)",
                 background: "linear-gradient(135deg, #f59e0b 0%, #fb923c 100%)",
@@ -174,7 +176,7 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* FG — subtext (fastest) */}
         <motion.p style={{ opacity: p2FgOpacity, y: p2FgY }}
           className="mt-6 text-lg md:text-xl text-white/50 font-light max-w-xl leading-relaxed">
-          A pilot's mindset. An engineer's edge.<br />
+          A pilot&apos;s mindset. An engineer&apos;s edge.<br />
           <span className="text-white/30">Precision, discipline, situational awareness —</span><br />
           in the cockpit and in code.
         </motion.p>
@@ -193,15 +195,17 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* MID — headline with reverse horizontal shear */}
         <motion.div style={{ opacity: p3MidOpacity, y: p3MidY, scale: p3MidScale }}>
           <div className="overflow-hidden leading-none text-right">
-            <motion.span style={{ x: p3RightX, display: "inline-block" }}
+            <motion.span 
               className="text-white uppercase"
-              style={{ fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
+              style={{ x: p3RightX, display: "inline-block", fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
               Sky is
             </motion.span>
           </div>
           <div className="overflow-hidden leading-none">
-            <motion.span style={{ x: p3LeftX, display: "inline-block" }}
+            <motion.span 
               style={{
+                x: p3LeftX, 
+                display: "inline-block",
                 fontFamily: displayFont,
                 fontSize: "clamp(3.5rem, 10vw, 9rem)",
                 background: "linear-gradient(135deg, #38bdf8 0%, #67e8f9 100%)",

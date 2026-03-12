@@ -253,10 +253,10 @@ export const Projects = () => {
             <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">— Open a Channel</p>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6"
               style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em", background: "linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-white/40 text-lg font-light max-w-xl mx-auto">
-              Whether it's about aviation, AI systems, or a shared passion for flight — I'd love to hear from you.
+              Whether it&apos;s about aviation, AI systems, or a shared passion for flight — I&apos;d love to hear from you.
             </p>
           </motion.div>
 

@@ -85,6 +85,7 @@ export const ScrollyCanvas = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
   useEffect(() => {
@@ -101,6 +102,7 @@ export const ScrollyCanvas = () => {
     });
 
     return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [frameIndex, images, imagesLoaded]);
 
   return (
