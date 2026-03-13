@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Github, Plane } from "lucide-react";
+import { ArrowUpRight, Plane } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },

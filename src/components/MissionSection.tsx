@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { RefreshCcw, ChevronRight } from "lucide-react";
+import { RefreshCcw } from "lucide-react";
 
 const stats = [
   { value: "9.35", label: "CGPA", unit: "" },

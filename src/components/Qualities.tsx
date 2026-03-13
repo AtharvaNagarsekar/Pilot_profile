@@ -4,7 +4,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, ElementType } from "react";
 import {
   ShieldCheck, Crosshair, Users, Wifi,
-  Lightbulb, LineChart, BrainCircuit, Handshake,
+  Lightbulb, BrainCircuit,
   Activity, Target, Timer, MessageSquare, Zap, Layers
 } from "lucide-react";
 
