@@ -66,7 +66,7 @@ const FlipCard = ({ item, i }: { item: typeof missionItems[0]; i: number }) => {
       >
         {/* --- FRONT: HEADING & ICON --- */}
         <div className="absolute inset-0 backface-hidden">
-          <div className={`w-full h-full flex flex-col items-center justify-center p-8 rounded-[2rem] border bg-gradient-to-br ${item.color} ${item.border} ${item.glow} backdrop-blur-md transition-all duration-500`}>
+          <div className={`w-full h-full flex flex-col items-center justify-center p-8 rounded-[2.5rem] border border-slate-200/60 dark:border-white/5 bg-gradient-to-br ${item.color} ${item.border} ${item.glow} backdrop-blur-xl transition-all duration-700 shadow-lg shadow-black/[0.02] dark:shadow-none`}>
             {/* Floating icon */}
             <div className="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500">
               {item.icon}
@@ -146,7 +146,7 @@ export const MissionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" as const }}
-              className="p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm text-center group hover:border-amber-400/20 transition-all duration-300"
+              className="p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md text-center group hover:bg-white/60 dark:hover:bg-white/[0.05] hover:border-amber-400/30 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-amber-400/5"
             >
               <div
                 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-orange-300 mb-2 group-hover:scale-105 transition-transform origin-bottom"
@@ -154,7 +154,7 @@ export const MissionSection = () => {
               >
                 {s.value}
               </div>
-              <div className="text-xs font-semibold tracking-[0.2em] uppercase text-white/40">{s.label}</div>
+              <div className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 dark:text-white/40">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -167,10 +167,13 @@ export const MissionSection = () => {
           transition={{ duration: 0.7 }}
           className="mb-14"
         >
-          <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-semibold mb-3">— Flight Mission</p>
+          <p className="text-amber-500 dark:text-amber-400 text-sm tracking-[0.4em] uppercase font-bold mb-4 flex items-center gap-3">
+            <span className="w-8 h-px bg-amber-500/30" />
+            Flight Mission
+          </p>
           <h2
-            className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-white/30 leading-none transition-colors"
-            style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em" }}
+            className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-white/30 leading-tight transition-colors tracking-tight"
+            style={{ fontFamily: "var(--font-bebas)" }}
           >
             Why I Fly
           </h2>

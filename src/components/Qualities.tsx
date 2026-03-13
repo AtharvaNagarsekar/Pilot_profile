@@ -39,7 +39,7 @@ const SkillCard = ({ q, i }: { q: ItemProp; i: number }) => {
       layout
       variants={fadeUp}
       onClick={() => setIsExpanded(!isExpanded)}
-      className={`relative w-full cursor-pointer group rounded-2xl overflow-hidden transition-all duration-500 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 ${q.border} ${q.glow} ${isExpanded ? 'ring-1 ring-sky-500/30' : ''}`}
+      className={`relative w-full cursor-pointer group rounded-[1.5rem] overflow-hidden transition-all duration-500 bg-white dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5 shadow-sm hover:shadow-xl hover:shadow-sky-500/5 ${q.border} ${q.glow} ${isExpanded ? 'ring-2 ring-sky-500/20 bg-slate-50/50' : ''}`}
     >
       <div className="p-4 md:p-5">
         <div className="flex items-center gap-4">
@@ -84,7 +84,7 @@ const QualityCard = ({ q, i }: { q: ItemProp; i: number }) => {
       layout
       variants={fadeUp}
       onClick={() => setIsExpanded(!isExpanded)}
-      className={`relative w-full cursor-pointer group rounded-2xl overflow-hidden transition-all duration-500 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 ${q.border} ${q.glow} ${isExpanded ? 'ring-1 ring-sky-500/30' : ''}`}
+      className={`relative w-full cursor-pointer group rounded-[1.5rem] overflow-hidden transition-all duration-500 bg-white dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5 shadow-sm hover:shadow-xl hover:shadow-sky-500/5 ${q.border} ${q.glow} ${isExpanded ? 'ring-2 ring-sky-500/20 bg-slate-50/50' : ''}`}
     >
       <div className="p-4 md:p-5">
         <div className="flex items-center gap-4">
@@ -140,13 +140,15 @@ export const Qualities = () => {
     <div className="relative bg-slate-50 dark:bg-[#0a0f1e] py-24 px-6 md:px-20 text-slate-900 dark:text-white z-20 overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp} className="mb-20 text-center">
-          <p className="text-sky-500 dark:text-sky-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">
-            — Capabilities
+          <p className="text-sky-600 dark:text-sky-400 text-sm tracking-[0.4em] uppercase font-bold mb-4 flex items-center justify-center gap-3">
+            <span className="w-8 h-px bg-sky-600/30" />
+            Capabilities
+            <span className="w-8 h-px bg-sky-600/30" />
           </p>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-slate-900 dark:text-transparent"
-            style={{ background: "var(--about-header-bg, linear-gradient(135deg, #1e293b 0%, #475569 100%))", WebkitBackgroundClip: "text", WebkitTextFillColor: "var(--about-header-fill, transparent)" }}>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:to-white/40 mb-6" style={{ fontFamily: "var(--font-bebas)" }}>
             Skills & Qualities
           </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-sky-500 to-amber-500 mx-auto rounded-full opacity-80" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">

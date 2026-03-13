@@ -6,7 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Flight Log", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -30,11 +30,10 @@ export const Nav = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.2 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-white/90 dark:bg-[#0a0f1e]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm dark:shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
           : "bg-transparent text-white"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
@@ -70,29 +69,21 @@ export const Nav = () => {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`text-sm font-medium tracking-widest uppercase transition-colors duration-200 relative group ${
-                scrolled ? "text-slate-500 hover:text-slate-900 dark:text-white/50 dark:hover:text-white" : "text-white/70 hover:text-white"
-              }`}
+              className={`px-5 py-2 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all duration-200 ${scrolled
+                  ? "border-amber-500/40 text-amber-600 hover:bg-amber-500/10 hover:border-amber-500/70 dark:border-amber-400/40 dark:text-amber-400 dark:hover:bg-amber-400/10 dark:hover:border-amber-400/70"
+                  : "border-amber-400/40 text-amber-400 hover:bg-amber-400/10 hover:border-amber-400/70"
+                }`}
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-amber-400 to-sky-400 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          <a
-            className={`px-5 py-2 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all duration-200 ${
-              scrolled 
-                ? "border-amber-500/40 text-amber-600 hover:bg-amber-500/10 hover:border-amber-500/70 dark:border-amber-400/40 dark:text-amber-400 dark:hover:bg-amber-400/10 dark:hover:border-amber-400/70"
-                : "border-amber-400/40 text-amber-400 hover:bg-amber-400/10 hover:border-amber-400/70"
-            }`}
-          >
-            Hail Frequency
-          </a>
-          
+
+
           {mounted && <ThemeToggle />}
         </div>
 
@@ -122,16 +113,12 @@ export const Nav = () => {
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-slate-600 hover:text-slate-900 dark:text-white/70 dark:hover:text-white text-base font-medium tracking-widest uppercase py-2"
+              className="px-5 py-3 rounded-full border border-amber-500/40 text-amber-600 dark:border-amber-400/40 dark:text-amber-400 text-sm font-semibold tracking-widest uppercase text-center transition-all duration-200 hover:bg-amber-500/10"
             >
               {link.label}
             </a>
           ))}
-          <a
-            className="mt-2 px-5 py-3 rounded-full border border-amber-500/40 text-amber-600 dark:border-amber-400/40 dark:text-amber-400 text-sm font-semibold tracking-widest uppercase text-center"
-          >
-            Hail Frequency
-          </a>
+
         </motion.div>
       )}
     </motion.nav>

@@ -52,12 +52,13 @@ export const Contact = () => {
           <div className="flex flex-col items-center text-center space-y-8">
             <div className="space-y-6">
               <h2 
-                className="text-5xl md:text-7xl font-bold dark:text-white text-slate-900 uppercase tracking-tighter"
-                style={{ fontFamily: "var(--font-bebas, impact, sans-serif)", transform: "scaleY(1.1)" }}
+                className="text-6xl md:text-8xl font-bold text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:to-white/40 uppercase tracking-normal"
+                style={{ fontFamily: "var(--font-bebas, impact, sans-serif)" }}
               >
                 Let&apos;s Connect
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed text-sm md:text-base">
+              <div className="w-16 h-1 bg-sky-500 mx-auto rounded-full opacity-60" />
+              <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed text-base font-medium">
                 Whether it&apos;s about aviation, AI systems, or a shared passion for flight — I&apos;d love to hear from you.
               </p>
             </div>
@@ -83,8 +84,8 @@ export const Contact = () => {
           </div>
 
           {/* --- RIGHT COLUMN: IMAGE 2 FORM --- */}
-          <div className="bg-slate-100 dark:bg-[#0b1120] p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-white/5 shadow-xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center dark:text-white text-slate-900 tracking-tight">Transmit a Message</h3>
+          <div className="bg-white/80 dark:bg-[#0b1120] p-8 md:p-12 rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl shadow-slate-200/50 dark:shadow-none backdrop-blur-xl">
+            <h3 className="text-3xl font-bold mb-10 text-center text-slate-900 dark:text-white tracking-tight">Transmit a Message</h3>
             <form ref={form} className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2 text-center dark:text-white text-slate-900">
@@ -95,7 +96,7 @@ export const Contact = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-5 py-4 rounded-xl border border-slate-300 dark:border-white/5 bg-white dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                  className="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner"
                   placeholder="Your Name..."
                 />
               </div>
@@ -108,7 +109,7 @@ export const Contact = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-5 py-4 rounded-xl border border-slate-300 dark:border-white/5 bg-white dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                  className="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner"
                   placeholder="Your Email..."
                 />
               </div>
@@ -121,14 +122,14 @@ export const Contact = () => {
                   name="message"
                   required
                   rows={4}
-                  className="w-full px-5 py-4 rounded-xl border border-slate-300 dark:border-white/5 bg-white dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                  className="w-full px-6 py-4 rounded-2xl border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-[#0f172a] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all resize-none font-sans placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner"
                   placeholder="Hello, I&apos;d like to discuss an opportunity..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgba(99,102,241,0.39)] hover:shadow-[0_6px_20px_rgba(99,102,241,0.23)] hover:-translate-y-0.5 disabled:opacity-50 text-base"
+                className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-sky-600 hover:bg-sky-700 text-white rounded-2xl font-bold transition-all duration-300 shadow-[0_15px_30px_rgba(2,132,199,0.2)] hover:shadow-[0_20px_40px_rgba(2,132,199,0.3)] hover:-translate-y-1 disabled:opacity-50 text-base tracking-wide"
               >
                 {isSubmitting ? "Transmitting..." : "Transmit Message"}
                 <Send size={18} />

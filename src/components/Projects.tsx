@@ -95,25 +95,25 @@ export const Projects = () => {
         {/* ── Section header ── */}
         <motion.div style={{ y: headerY }} className="mb-20">
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-amber-400 text-sm tracking-[0.3em] uppercase font-semibold mb-4">
-            — Flight Log
+            className="text-amber-600 dark:text-amber-400 text-sm tracking-[0.4em] uppercase font-bold mb-4 flex items-center gap-3">
+            <span className="w-8 h-px bg-amber-600/30" />
+            Flight Log
           </motion.p>
           <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-white/8 pb-8 gap-6">
             <div className="max-w-2xl">
               <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-slate-900 dark:text-transparent"
-                style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em", background: "var(--projects-header-bg, linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.3) 100%))", WebkitBackgroundClip: "text", WebkitTextFillColor: "var(--projects-header-fill, transparent)" }}>
+                className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:to-white/40">
                 Selected Works
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-lg md:text-xl text-white/40 font-light">
+                className="text-lg md:text-xl text-slate-500 dark:text-white/40 font-light">
                 Projects at the intersection of aviation, intelligence, and impact.
               </motion.p>
             </div>
             <a href="https://github.com/AtharvaNagarsekar" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-2 group text-sm font-semibold uppercase tracking-widest text-white/40 hover:text-white transition-colors">
+              className="flex items-center gap-2 group text-sm font-semibold uppercase tracking-widest text-slate-400 dark:text-white/40 hover:text-slate-900 dark:hover:text-white transition-colors">
               All on GitHub <ArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" size={16} />
             </a>
           </div>
@@ -125,7 +125,7 @@ export const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="group relative rounded-[2.5rem] border border-amber-400/20 bg-gradient-to-br from-amber-400/6 via-orange-400/[0.03] to-transparent p-8 md:p-14 mb-14 overflow-hidden backdrop-blur-xl hover:border-amber-400/40 hover:shadow-[0_0_100px_rgba(245,158,11,0.1)] transition-all duration-700 cursor-pointer"
+          className="group relative rounded-[3rem] border border-amber-500/20 dark:border-amber-400/20 bg-gradient-to-br from-amber-500/[0.04] via-orange-500/[0.01] to-transparent dark:from-amber-400/6 p-8 md:p-14 mb-14 overflow-hidden backdrop-blur-2xl hover:border-amber-500/40 hover:shadow-[0_40px_100px_rgba(245,158,11,0.08)] dark:hover:shadow-[0_0_100px_rgba(245,158,11,0.1)] transition-all duration-700 cursor-pointer"
         >
           {/* Background radial glow */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-amber-400/[0.06] blur-[100px] pointer-events-none group-hover:bg-amber-400/[0.1] transition-all duration-700" />
@@ -140,7 +140,7 @@ export const Projects = () => {
                 <Plane size={12} className="animate-float" />
                 Flagship Project
               </div>
-              <span className="text-white/25 text-xs tracking-widest">2024–2026</span>
+              <span className="text-slate-400 dark:text-white/25 text-xs tracking-widest">2024–2026</span>
               <div className="flex items-center gap-1.5 ml-auto">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-400 text-xs font-semibold tracking-widest uppercase">Live</span>
@@ -152,7 +152,7 @@ export const Projects = () => {
               SkyCoach
             </h3>
 
-            <p className="text-white/40 text-sm md:text-base mb-6 tracking-widest uppercase">
+            <p className="text-slate-500 dark:text-white/40 text-sm md:text-base mb-6 tracking-widest uppercase">
               Aviation · Whisper LLM · Real-time NLP · Audio DSP
             </p>
 
@@ -162,9 +162,9 @@ export const Projects = () => {
                 { label: "Voice Stress Analyzer", desc: "FFT-based audio DSP to flag rushed or degraded pilot communication in real time" },
                 { label: "ATC Radio Simulator", desc: "Realistic radio effects, variable controller behavior, high-workload interruption logic" },
               ].map((f, i) => (
-                <div key={i} className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-amber-400/20 transition-colors">
-                  <h4 className="text-amber-400/90 text-xs font-bold uppercase tracking-widest mb-2">{f.label}</h4>
-                  <p className="text-white/45 text-xs leading-relaxed">{f.desc}</p>
+                <div key={i} className="p-5 rounded-2xl bg-white/40 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5 hover:border-amber-400/30 transition-all shadow-sm hover:shadow-md">
+                  <h4 className="text-amber-600 dark:text-amber-400/90 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">{f.label}</h4>
+                  <p className="text-slate-600 dark:text-white/45 text-xs leading-relaxed font-medium">{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -179,12 +179,12 @@ export const Projects = () => {
 
             <div className="flex gap-4 flex-wrap">
               <a href="https://github.com/AtharvaNagarsekar" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 px-7 py-3 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 text-sm font-semibold hover:bg-amber-400/20 hover:border-amber-400/60 transition-all duration-200 hover:scale-105">
-                <Github size={16} /> GitHub
+                className="flex items-center gap-2 px-8 py-3.5 rounded-full border border-amber-600 dark:border-amber-400/30 bg-amber-600 dark:bg-amber-400/10 text-white dark:text-amber-300 text-sm font-bold hover:bg-amber-700 dark:hover:bg-amber-400/20 shadow-lg shadow-amber-600/10 transition-all duration-300 hover:-translate-y-0.5">
+                <Github size={18} /> GitHub
               </a>
               <a href="#"
-                className="flex items-center gap-2 px-7 py-3 rounded-full border border-white/10 bg-white/5 text-white/60 text-sm font-semibold hover:bg-white/10 hover:text-white transition-all duration-200 hover:scale-105">
-                Live Demo <ArrowUpRight size={16} />
+                className="flex items-center gap-2 px-8 py-3.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-900 dark:text-white/60 text-sm font-bold hover:bg-white hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+                Live Demo <ArrowUpRight size={18} />
               </a>
             </div>
           </div>
@@ -197,7 +197,7 @@ export const Projects = () => {
             return (
               <motion.div key={idx}
                 initial="hidden" whileInView="visible" viewport={{ once: true }} custom={idx} variants={fadeUp}
-                className={`card-3d group relative rounded-[1.5rem] border border-white/5 glass p-7 transition-all duration-500 hover:border-white/10 ${acc.glow} overflow-hidden flex flex-col cursor-pointer`}>
+                className={`card-3d group relative rounded-[2rem] border border-slate-200/60 dark:border-white/5 bg-white/60 dark:bg-transparent backdrop-blur-md p-7 transition-all duration-500 hover:border-slate-300 dark:hover:border-white/10 shadow-sm hover:shadow-2xl ${acc.glow} overflow-hidden flex flex-col cursor-pointer`}>
 
                 {/* Ambient inner gradient reveal */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -208,9 +208,9 @@ export const Projects = () => {
                     <ArrowUpRight className="text-white/15 group-hover:text-white/60 ml-3 rotate-45 group-hover:rotate-0 transition-all duration-400" size={18} />
                   </div>
 
-                  <p className="text-xs font-bold tracking-[0.25em] uppercase text-white/30 mb-2 group-hover:text-white/50 transition-colors">{project.subtitle}</p>
+                  <p className="text-xs font-bold tracking-[0.25em] uppercase text-slate-400 dark:text-white/30 mb-2 group-hover:text-slate-600 dark:group-hover:text-white/50 transition-colors">{project.subtitle}</p>
                   <h3 className="text-2xl font-semibold mb-3 tracking-tight">{project.title}</h3>
-                  <p className="text-white/45 text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors duration-300 flex-1">{project.description}</p>
+                   <p className="text-slate-500 dark:text-white/45 text-sm leading-relaxed mb-6 group-hover:text-slate-700 dark:group-hover:text-white/60 transition-colors duration-300 flex-1">{project.description}</p>
 
                   <div className="mt-auto">
                     <div className="flex gap-2 flex-wrap mb-4">
@@ -219,7 +219,7 @@ export const Projects = () => {
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-white/20">{project.period}</span>
+                       <span className="text-xs text-slate-400 dark:text-white/20">{project.period}</span>
                       <div className="flex gap-2 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                         <a href={project.github} target="_blank" rel="noopener noreferrer"
                           className="p-2 rounded-full border border-white/10 bg-black/40 text-white/50 hover:text-white hover:bg-white/10 transition-colors">
