@@ -6,16 +6,16 @@ import { RefreshCcw, ChevronRight } from "lucide-react";
 
 const stats = [
   { value: "9.35", label: "CGPA", unit: "" },
-  { value: "500+", label: "Competitors Beaten", unit: "" },
-  { value: "30%", label: "Pipeline Efficiency", unit: "" },
-  { value: "90%", label: "Prediction Accuracy", unit: "" },
+  { value: "8+", label: "AWARDS", unit: "" },
+  { value: "CLASS 1", label: "MEDICAL STATUS", unit: "" },
+  { value: "IN PROGRESS", label: "FLIGHT HOURS", unit: "" },
 ];
 
 const missionItems = [
   {
-    heading: "The Cockpit Mindset",
+    heading: "Passion for Flight",
     body:
-      "Every system I build is designed with aviation-grade reliability in mind — no single point of failure, constant error-checking, and graceful degradation under pressure.",
+      "From watching aircraft trace lines across the sky to studying how they stay aloft, aviation has always fascinated me. That curiosity grew into a commitment to pursue the cockpit and master the science and art of flying.",
     icon: "✈",
     color: "from-amber-400/20 to-amber-400/0",
     border: "border-amber-400/20 hover:border-amber-400/50",
@@ -24,10 +24,10 @@ const missionItems = [
     accent: "text-amber-500",
   },
   {
-    heading: "AI Meets Aviation",
+    heading: "Discipline of the Cockpit",
     body:
-      "I built SkyCoach — a live ATC transcription and stress analysis platform — because the future of aviation safety lives at the intersection of technology and human judgment.",
-    icon: "📡",
+      "Flying demands precision, responsibility, and the ability to stay calm under pressure. I am drawn to the discipline of the cockpit—where preparation, situational awareness, and sound decisions define every flight.",
+    icon: "🎯",
     color: "from-sky-400/20 to-sky-400/0",
     border: "border-sky-400/20 hover:border-sky-400/50",
     glow: "shadow-[0_0_60px_rgba(56,189,248,0.07)]",
@@ -35,10 +35,10 @@ const missionItems = [
     accent: "text-sky-500",
   },
   {
-    heading: "Built for the Long Haul",
+    heading: "Flying with Purpose",
     body:
-      "Whether it's a 12-hour flight path or a complex ML pipeline — I plan meticulously, execute precisely, and adapt continuously. A CGPA of 9.35 and multiple hackathon wins prove I don't cruise, I climb.",
-    icon: "🏔",
+      "Aviation is more than reaching destinations; it is about connecting people, cultures, and opportunities. As a pilot, I want to be part of the system that keeps the world moving safely and efficiently.",
+    icon: "🌍",
     color: "from-cyan-400/20 to-cyan-400/0",
     border: "border-cyan-400/20 hover:border-cyan-400/50",
     glow: "shadow-[0_0_60px_rgba(34,211,238,0.07)]",
@@ -74,28 +74,24 @@ const FlipCard = ({ item, i }: { item: typeof missionItems[0]; i: number }) => {
             <h3 className="text-2xl md:text-3xl font-bold text-center text-slate-800 dark:text-white leading-tight" style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.02em" }}>
               {item.heading}
             </h3>
-            <div className={`mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest ${item.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
-              Inquire Deeply <ChevronRight size={12} />
-            </div>
+            {/* Removed Inquire Deeply hint */}
           </div>
         </div>
 
         {/* --- BACK: ELABORATION --- */}
         <div className="absolute inset-0 backface-hidden rotate-y-180">
           <div className={`w-full h-full flex flex-col items-center justify-center p-10 rounded-[2rem] border border-sky-400/20 ${item.backBg} backdrop-blur-xl text-center shadow-2xl overflow-hidden relative`}>
-             <div className="absolute top-6 right-6 opacity-20">
-               <RefreshCcw size={20} className="animate-spin-slow" />
-             </div>
-             
-             <h4 className={`text-xs font-bold uppercase tracking-[0.3em] mb-6 ${item.accent}`}>Operational Insight</h4>
-             
-             <p className="text-sm md:text-base dark:text-white/80 text-slate-700 leading-relaxed font-medium">
-               {item.body}
-             </p>
-             
-             <div className={`mt-8 text-[9px] uppercase font-bold tracking-[0.4em] ${item.accent} opacity-50`}>
-               Click to return to base
-             </div>
+            <div className="absolute top-6 right-6 opacity-20">
+              <RefreshCcw size={20} className="animate-spin-slow" />
+            </div>
+
+            <h4 className={`text-xs font-bold uppercase tracking-[0.3em] mb-6 ${item.accent}`}>{item.heading}</h4>
+
+            <p className="text-sm md:text-base dark:text-white/80 text-slate-700 leading-relaxed font-medium">
+              {item.body}
+            </p>
+
+            {/* Removed Click to return hint */}
           </div>
         </div>
       </motion.div>
@@ -146,15 +142,22 @@ export const MissionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" as const }}
-              className="p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md text-center group hover:bg-white/60 dark:hover:bg-white/[0.05] hover:border-amber-400/30 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-amber-400/5"
+              className="relative p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md text-center group hover:bg-white/60 dark:hover:bg-white/[0.05] hover:border-amber-400/30 transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-amber-400/5 overflow-hidden noise-overlay"
             >
+              {/* MFD Scanline effect */}
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-400/10 to-transparent h-24 w-full animate-scanline" />
+              </div>
+
               <div
-                className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-orange-300 mb-2 group-hover:scale-105 transition-transform origin-bottom"
+                className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-orange-300 mb-2 group-hover:scale-105 transition-transform origin-bottom text-shadow-amber"
                 style={{ fontFamily: "var(--font-bebas)", letterSpacing: "0.04em" }}
               >
                 {s.value}
               </div>
-              <div className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 dark:text-white/40">{s.label}</div>
+              <div className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-slate-500 dark:text-white/40 group-hover:text-amber-500 transition-colors">
+                {s.label}
+              </div>
             </motion.div>
           ))}
         </motion.div>

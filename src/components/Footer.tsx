@@ -9,7 +9,7 @@ export const Footer = () => {
           <a href="https://www.linkedin.com/in/atharva-nagarsekar-9699a9207" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">
             LinkedIn
           </a>
-          <a href="mailto:atharvanagarsekar17@gmail.com" className="text-sm font-medium text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">
+          <a href="nagarsekaratharva@gmail.com" className="text-sm font-medium text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">
             Email
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-500 hover:text-sky-500 dark:text-slate-400 dark:hover:text-sky-400 transition-colors">

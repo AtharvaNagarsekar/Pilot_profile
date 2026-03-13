@@ -61,9 +61,15 @@ body {
   50%       { transform: translateY(-14px); }
 }
 
+/* --- MFD HUD Animations --- */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 1; }
+  0%, 100% { opacity: 0.3; filter: blur(40px); }
+  50% { opacity: 0.6; filter: blur(60px); }
 }
 
 @keyframes spin-slow {
@@ -78,11 +84,14 @@ body {
   100% { transform: translateY(100vh); opacity: 0; }
 }
 
-/* ─── Utility helpers ─── */
-.animate-float       { animation: float 6s ease-in-out infinite; }
-.animate-float-slow  { animation: float 9s ease-in-out infinite; }
-.animate-pulse-glow  { animation: pulse-glow 3s ease-in-out infinite; }
-.animate-spin-slow   { animation: spin-slow 20s linear infinite; }
+@layer utilities {
+  .animate-float       { animation: float 6s ease-in-out infinite; }
+  .animate-float-slow  { animation: float 9s ease-in-out infinite; }
+  .animate-pulse-glow  { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-spin-slow   { animation: spin-slow 20s linear infinite; }
+  .animate-scanline    { animation: scanline 6s linear infinite; }
+  .text-shadow-amber   { text-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+}
 
 .text-shimmer {
   background: linear-gradient(

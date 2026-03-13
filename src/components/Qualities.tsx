@@ -2,10 +2,10 @@
 
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, ElementType } from "react";
-import { 
-  ShieldCheck, Crosshair, Users, Wifi, 
-  Lightbulb, LineChart, BrainCircuit, Handshake, 
-  Activity, Target, Timer, MessageSquare,
+import {
+  ShieldCheck, Crosshair, Users, Wifi,
+  Lightbulb, LineChart, BrainCircuit, Handshake,
+  Activity, Target, Timer, MessageSquare, Zap, Layers
 } from "lucide-react";
 
 const fadeUp: Variants = {
@@ -118,22 +118,25 @@ const QualityCard = ({ q, i }: { q: ItemProp; i: number }) => {
 
 export const Qualities = () => {
   const skills: ItemProp[] = [
-    { icon: Crosshair, label: "Decision-Making", desc: "Calm, precise execution in high-stakes environments.", color: "text-sky-500", border: "hover:border-sky-500/30", glow: "hover:shadow-[0_0_20px_rgba(56,189,248,0.1)]" },
-    { icon: Users, label: "Leadership", desc: "Guiding teams with clear direction and shared mission focus.", color: "text-emerald-500", border: "hover:border-emerald-500/30", glow: "hover:shadow-[0_0_20px_rgba(52,211,153,0.1)]" },
-    { icon: Target, label: "CRM", desc: "Maximizing efficiency and safety through effective crew communication.", color: "text-amber-500", border: "hover:border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.1)]" },
-    { icon: Lightbulb, label: "Problem Solving", desc: "Deconstructing complex challenges into actionable plans.", color: "text-rose-500", border: "hover:border-rose-500/30", glow: "hover:shadow-[0_0_20px_rgba(244,63,94,0.1)]" },
-    { icon: MessageSquare, label: "Corporate Comms", desc: "Clear, professional articulation across all stakeholders.", color: "text-purple-500", border: "hover:border-purple-500/30", glow: "hover:shadow-[0_0_20px_rgba(168,85,247,0.1)]" },
-    { icon: Timer, label: "Time Mgt.", desc: "Strict adherence to timelines without sacrificing quality.", color: "text-indigo-500", border: "hover:border-indigo-500/30", glow: "hover:shadow-[0_0_20px_rgba(99,102,241,0.1)]" },
-    { icon: LineChart, label: "Data Storytelling", desc: "Translating data into compelling narratives for strategy.", color: "text-cyan-500", border: "hover:border-cyan-500/30", glow: "hover:shadow-[0_0_20px_rgba(6,182,212,0.1)]" },
-    { icon: ShieldCheck, label: "Precision", desc: "Meticulous accuracy and high operational standards.", color: "text-blue-500", border: "hover:border-blue-500/30", glow: "hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]" },
+    { icon: Users, label: "Leadership", desc: "I believe the best way to lead is by example—setting high standards and maintaining integrity in every task. By creating a focused and supportive environment, teams naturally perform at their best.", color: "text-emerald-500", border: "hover:border-emerald-500/30", glow: "hover:shadow-[0_0_20px_rgba(52,211,153,0.1)]" },
+    { icon: Crosshair, label: "Decision-Making", desc: "I approach decisions with a balance of analysis and intuition, especially when time is limited. Staying calm and evaluating options logically helps me choose the safest and most effective path forward.", color: "text-sky-500", border: "hover:border-sky-500/30", glow: "hover:shadow-[0_0_20px_rgba(56,189,248,0.1)]" },
+    { icon: MessageSquare, label: "Corporate Communication", desc: "I value clear, respectful communication that ensures everyone is aligned and informed. Whether presenting ideas or discussing solutions, I focus on clarity and purpose.", color: "text-purple-500", border: "hover:border-purple-500/30", glow: "hover:shadow-[0_0_20px_rgba(168,85,247,0.1)]" },
+    { icon: Wifi, label: "CRM", desc: "I believe strong teamwork and open communication are essential in high-responsibility environments. Listening actively and sharing information clearly helps teams operate safely and efficiently.", color: "text-amber-500", border: "hover:border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.1)]" },
+    { icon: Lightbulb, label: "Problem Solving", desc: "I enjoy breaking down complex challenges and approaching them step by step. Finding structured solutions helps me stay focused even when problems are unfamiliar.", color: "text-rose-500", border: "hover:border-rose-500/30", glow: "hover:shadow-[0_0_20px_rgba(244,63,94,0.1)]" },
+    { icon: Timer, label: "Time Management", desc: "I prioritize preparation and disciplined planning to stay ahead of responsibilities. Managing time effectively allows me to maintain consistency and quality in everything I do.", color: "text-indigo-500", border: "hover:border-indigo-500/30", glow: "hover:shadow-[0_0_20px_rgba(99,102,241,0.1)]" },
+    { icon: Layers, label: "Multi-tasking", desc: "I am comfortable managing multiple inputs while maintaining focus on the bigger picture. Balancing several tasks simultaneously helps me stay aware and responsive.", color: "text-blue-500", border: "hover:border-blue-500/30", glow: "hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]" },
+    { icon: Activity, label: "Stress Management", desc: "I focus on staying composed and maintaining clear thinking during demanding situations. Calmness under pressure helps me perform consistently and make better decisions.", color: "text-rose-500", border: "hover:border-rose-500/30", glow: "hover:shadow-[0_0_20px_rgba(244,63,94,0.1)]" },
   ];
 
   const personalQualities: ItemProp[] = [
-    { icon: Handshake, label: "Team Work", desc: "Fostering collaboration where shared expertise leads to high-impact results for the whole crew.", color: "text-amber-500", border: "hover:border-amber-500/30", glow: "hover:shadow-[0_0_30px_rgba(245,158,11,0.1)]" },
-    { icon: BrainCircuit, label: "Critical Thinking", desc: "Applying rigorous, data-driven analysis to evaluate situations and identify the safest, most efficient pathways forward.", color: "text-cyan-500", border: "hover:border-cyan-500/30", glow: "hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]" },
-    { icon: ShieldCheck, label: "Safety First", desc: "An uncompromising commitment to discipline and the highest standards of aviation safety in every operation.", color: "text-rose-500", border: "hover:border-rose-500/30", glow: "hover:shadow-[0_0_30px_rgba(244,63,94,0.1)]" },
-    { icon: Activity, label: "Adaptability", desc: "Thriving in dynamic environments by quickly mastering new tech and navigating unforeseen challenges with ease.", color: "text-emerald-500", border: "hover:border-emerald-500/30", glow: "hover:shadow-[0_0_30px_rgba(52,211,153,0.1)]" },
-    { icon: Wifi, label: "Situational Awareness", desc: "Maintaining a constant environmental scan and proactive threat management to ensure mission success.", color: "text-indigo-500", border: "hover:border-indigo-500/30", glow: "hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]" },
+    { icon: ShieldCheck, label: "Safety First", desc: "I believe safety should guide every action and decision in aviation. No objective is more important than protecting people and maintaining responsible operations.", color: "text-rose-500", border: "hover:border-rose-500/30", glow: "hover:shadow-[0_0_30px_rgba(244,63,94,0.1)]" },
+    { icon: BrainCircuit, label: "Critical Thinking", desc: "I like to question assumptions and evaluate situations from multiple perspectives. Thinking critically helps me understand problems deeper before acting.", color: "text-cyan-500", border: "hover:border-cyan-500/30", glow: "hover:shadow-[0_0_30px_rgba(6,182,212,0.1)]" },
+    { icon: Activity, label: "Resilient", desc: "Challenges motivate me to improve rather than discourage me. Every setback becomes an opportunity to grow stronger and more prepared.", color: "text-indigo-500", border: "hover:border-indigo-500/30", glow: "hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]" },
+    { icon: Zap, label: "Adaptable", desc: "I am comfortable adjusting to new environments and unexpected changes. Flexibility allows me to remain effective even when conditions shift quickly.", color: "text-emerald-500", border: "hover:border-emerald-500/30", glow: "hover:shadow-[0_0_30px_rgba(52,211,153,0.1)]" },
+    { icon: Target, label: "Precision", desc: "I naturally pay attention to small details and strive for accuracy in my work. Consistency and precision help ensure reliability in everything I do.", color: "text-blue-500", border: "hover:border-blue-500/30", glow: "hover:shadow-[0_0_30px_rgba(59,130,246,0.1)]" },
+    { icon: ShieldCheck, label: "Discipline", desc: "I believe discipline is the foundation of long-term success. Consistent effort, preparation, and focus help turn ambition into progress.", color: "text-slate-500", border: "hover:border-slate-500/30", glow: "hover:shadow-[0_0_30px_rgba(100,116,139,0.1)]" },
+    { icon: BrainCircuit, label: "Calm Under Pressure", desc: "I make a conscious effort to remain calm and focused during high-pressure moments. Clear thinking in demanding situations allows better judgement and control.", color: "text-sky-500", border: "hover:border-sky-500/30", glow: "hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]" },
+    { icon: Users, label: "Responsible", desc: "I take ownership of my actions and the outcomes they produce. Responsibility drives me to maintain high standards and earn the trust of others.", color: "text-emerald-500", border: "hover:border-emerald-500/30", glow: "hover:shadow-[0_0_30px_rgba(52,211,153,0.1)]" },
   ];
 
   return (
@@ -152,7 +155,7 @@ export const Qualities = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">
-          
+
           {/* LEFT: PROFESSIONAL SKILLS (FLIP) */}
           <div className="space-y-10">
             <div className="flex items-center gap-4 mb-8">

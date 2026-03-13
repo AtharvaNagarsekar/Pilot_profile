@@ -17,9 +17,8 @@ const projects = [
   {
     title: "VidGyan",
     subtitle: "NLP · Generative AI · Research",
-    description: "Automated educational video pipeline using LLMs, TTS, and image generation. Reduced content creation time by 80%, improved script coherence to 95% with Gemini API. Won Best Paper Award at AITA 2025.",
-    tags: ["LLM", "TTS", "Gemini API", "NLP"],
-    link: "#", github: "https://github.com/AtharvaNagarsekar",
+    description: "Automated educational video creation pipeline using LLMs, TTS, and image generation. Reduced content creation time by 80%, improved script coherence to 95%. Won Best Paper Award at AITA 2025.",
+    tags: ["LLM", "TTS", "NLP"],
     period: "Dec 2023 – Jun 2025",
     accent: "sky",
   },
@@ -28,45 +27,41 @@ const projects = [
     subtitle: "Agentic AI · CrewAI · NLP",
     description: "Multi-agent legal assistant for research, contract drafting, and case prediction. Processed 10,000+ legal documents with NLP pipelines; improved retrieval precision by 30% using semantic search.",
     tags: ["CrewAI", "Semantic Search", "NLP", "Agents"],
-    link: "#", github: "https://github.com/AtharvaNagarsekar",
     period: "Feb 2025 – Present",
     accent: "cyan",
   },
   {
     title: "Fin-AI-lytics",
     subtitle: "Machine Learning · AWS · Finance",
-    description: "AI-powered financial advisor with live stock integration — 90% prediction accuracy. Portfolio optimizer with 12% improved simulated returns.",
+    description: "AI powered financial advisor with live stock integration providing upto 90% prediction accuracy. Implemented Portfolio optimizer with 12% improved simulated returns.",
     tags: ["AWS", "ML", "Finance AI"],
-    link: "#", github: "https://github.com/AtharvaNagarsekar",
     period: "Sep 2024 – Dec 2024",
     accent: "emerald",
   },
   {
     title: "TasteTrail",
     subtitle: "Deep Learning · EDA",
-    description: "Food recommendation engine with 85% user satisfaction in pilot testing. Enhanced personalization with calorie/budget filters, increasing adoption by 20%.",
-    tags: ["Deep Learning", "EDA", "Personalization"],
-    link: "#", github: "https://github.com/AtharvaNagarsekar",
+    description: "Food recommendation engine with 85% user satisfaction in pilot testing. Enhanced personalization with calorie and budget filters.",
+    tags: ["Deep Learning", "EDA"],
     period: "Aug 2024 – Oct 2024",
     accent: "rose",
   },
   {
     title: "StyleGen",
     subtitle: "Computer Vision · CGAN",
-    description: "Web app generating unique fashion outfits via Conditional GANs. Applied adversarial training in PyTorch with garment mask-guided structured outputs.",
+    description: "Web app generating unique fashion outfits via Conditional GANs. Applied adversarial training in PyTorch with garment mask guided structured outputs.",
     tags: ["PyTorch", "CGAN", "Computer Vision"],
-    link: "#", github: "https://github.com/AtharvaNagarsekar",
     period: "Jan – Mar 2025",
     accent: "purple",
   },
 ];
 
 const accentMap: Record<string, { tag: string; line: string; dot: string; glow: string }> = {
-  sky:     { tag: "border-sky-400/20 bg-sky-400/5 text-sky-300/80",     line: "border-sky-400/30 hover:border-sky-400/60",     dot: "bg-sky-400/80",     glow: "hover:shadow-[0_0_50px_rgba(56,189,248,0.08)]" },
-  cyan:    { tag: "border-cyan-400/20 bg-cyan-400/5 text-cyan-300/80",   line: "border-cyan-400/30 hover:border-cyan-400/60",   dot: "bg-cyan-400/80",    glow: "hover:shadow-[0_0_50px_rgba(34,211,238,0.08)]" },
+  sky: { tag: "border-sky-400/20 bg-sky-400/5 text-sky-300/80", line: "border-sky-400/30 hover:border-sky-400/60", dot: "bg-sky-400/80", glow: "hover:shadow-[0_0_50px_rgba(56,189,248,0.08)]" },
+  cyan: { tag: "border-cyan-400/20 bg-cyan-400/5 text-cyan-300/80", line: "border-cyan-400/30 hover:border-cyan-400/60", dot: "bg-cyan-400/80", glow: "hover:shadow-[0_0_50px_rgba(34,211,238,0.08)]" },
   emerald: { tag: "border-emerald-400/20 bg-emerald-400/5 text-emerald-300/80", line: "border-emerald-400/30 hover:border-emerald-400/60", dot: "bg-emerald-400/80", glow: "hover:shadow-[0_0_50px_rgba(52,211,153,0.08)]" },
-  rose:    { tag: "border-rose-400/20 bg-rose-400/5 text-rose-300/80",   line: "border-rose-400/30 hover:border-rose-400/60",   dot: "bg-rose-400/80",    glow: "hover:shadow-[0_0_50px_rgba(251,113,133,0.08)]" },
-  purple:  { tag: "border-purple-400/20 bg-purple-400/5 text-purple-300/80", line: "border-purple-400/30 hover:border-purple-400/60", dot: "bg-purple-400/80", glow: "hover:shadow-[0_0_50px_rgba(192,132,252,0.08)]" },
+  rose: { tag: "border-rose-400/20 bg-rose-400/5 text-rose-300/80", line: "border-rose-400/30 hover:border-rose-400/60", dot: "bg-rose-400/80", glow: "hover:shadow-[0_0_50px_rgba(251,113,133,0.08)]" },
+  purple: { tag: "border-purple-400/20 bg-purple-400/5 text-purple-300/80", line: "border-purple-400/30 hover:border-purple-400/60", dot: "bg-purple-400/80", glow: "hover:shadow-[0_0_50px_rgba(192,132,252,0.08)]" },
 };
 
 export const Projects = () => {
@@ -158,9 +153,9 @@ export const Projects = () => {
 
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               {[
-                { label: "ATC Transcription", desc: "Live Whisper + LLM pipeline with readback validation and airport context adaptation" },
-                { label: "Voice Stress Analyzer", desc: "FFT-based audio DSP to flag rushed or degraded pilot communication in real time" },
-                { label: "ATC Radio Simulator", desc: "Realistic radio effects, variable controller behavior, high-workload interruption logic" },
+                { label: "ATC Transcription", desc: "Engineered a live ATC transcription and context analysis pipeline using Whisper with LLM refinement, validating readbacks with airport context." },
+                { label: "Voice Stress Analyzer", desc: "Developed a real time voice and stress analyzer using FFT based audio features to flag rushed or degraded communication." },
+                { label: "Adaptive ATC Simulator", desc: "Created an adaptive ATC simulator with realistic radio effects, variable controller behavior, and interruptions." },
               ].map((f, i) => (
                 <div key={i} className="p-5 rounded-2xl bg-white/40 dark:bg-white/[0.03] border border-slate-200/60 dark:border-white/5 hover:border-amber-400/30 transition-all shadow-sm hover:shadow-md">
                   <h4 className="text-amber-600 dark:text-amber-400/90 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">{f.label}</h4>
@@ -170,7 +165,7 @@ export const Projects = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {["Whisper", "LLM", "FFT Audio", "ATC Sim", "NLP", "Python", "Flask"].map((tag) => (
+              {["Whisper", "LLM", "FFT Audio", "ATC Sim", "NLP"].map((tag) => (
                 <span key={tag} className="text-sm font-medium px-4 py-1.5 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300/75">
                   {tag}
                 </span>
@@ -178,12 +173,8 @@ export const Projects = () => {
             </div>
 
             <div className="flex gap-4 flex-wrap">
-              <a href="https://github.com/AtharvaNagarsekar" target="_blank" rel="noopener noreferrer"
+              <a href="https://sky-coach-coral.vercel.app/live-atc/" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 px-8 py-3.5 rounded-full border border-amber-600 dark:border-amber-400/30 bg-amber-600 dark:bg-amber-400/10 text-white dark:text-amber-300 text-sm font-bold hover:bg-amber-700 dark:hover:bg-amber-400/20 shadow-lg shadow-amber-600/10 transition-all duration-300 hover:-translate-y-0.5">
-                <Github size={18} /> GitHub
-              </a>
-              <a href="#"
-                className="flex items-center gap-2 px-8 py-3.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 text-slate-900 dark:text-white/60 text-sm font-bold hover:bg-white hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
                 Live Demo <ArrowUpRight size={18} />
               </a>
             </div>
@@ -205,12 +196,11 @@ export const Projects = () => {
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-5">
                     <div className={`h-px flex-1 bg-gradient-to-r from-transparent ${acc.dot.replace("bg-", "to-").replace("/80", "/40")} transition-all duration-500`} />
-                    <ArrowUpRight className="text-white/15 group-hover:text-white/60 ml-3 rotate-45 group-hover:rotate-0 transition-all duration-400" size={18} />
                   </div>
 
                   <p className="text-xs font-bold tracking-[0.25em] uppercase text-slate-400 dark:text-white/30 mb-2 group-hover:text-slate-600 dark:group-hover:text-white/50 transition-colors">{project.subtitle}</p>
                   <h3 className="text-2xl font-semibold mb-3 tracking-tight">{project.title}</h3>
-                   <p className="text-slate-500 dark:text-white/45 text-sm leading-relaxed mb-6 group-hover:text-slate-700 dark:group-hover:text-white/60 transition-colors duration-300 flex-1">{project.description}</p>
+                  <p className="text-slate-500 dark:text-white/45 text-sm leading-relaxed mb-6 group-hover:text-slate-700 dark:group-hover:text-white/60 transition-colors duration-300 flex-1">{project.description}</p>
 
                   <div className="mt-auto">
                     <div className="flex gap-2 flex-wrap mb-4">
@@ -219,17 +209,7 @@ export const Projects = () => {
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                       <span className="text-xs text-slate-400 dark:text-white/20">{project.period}</span>
-                      <div className="flex gap-2 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer"
-                          className="p-2 rounded-full border border-white/10 bg-black/40 text-white/50 hover:text-white hover:bg-white/10 transition-colors">
-                          <Github size={14} />
-                        </a>
-                        <a href={project.link}
-                          className="p-2 rounded-full border border-white/10 bg-black/40 text-white/50 hover:text-white hover:bg-white/10 transition-colors">
-                          <ArrowUpRight size={14} />
-                        </a>
-                      </div>
+                      <span className="text-xs text-slate-400 dark:text-white/20">{project.period}</span>
                     </div>
                   </div>
                 </div>

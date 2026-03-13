@@ -19,63 +19,63 @@ const displayFont = "var(--font-bebas)";
 export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
 
   // ─── PANEL 1  (0 → 22%)  HERO NAME ────────────────────────────────────────
-  const p1BgOpacity  = useTransform(progress, [0, 0.04, 0.17, 0.22], [0, 1, 1, 0]);
-  const p1BgY        = useTransform(progress, [0, 0.22], ["0px", "-40px"]);
+  const p1BgOpacity = useTransform(progress, [0, 0.04, 0.17, 0.22], [0, 1, 1, 0]);
+  const p1BgY = useTransform(progress, [0, 0.22], ["0px", "-40px"]);
 
   const p1MidOpacity = useTransform(progress, [0, 0.03, 0.16, 0.22], [0, 1, 1, 0]);
-  const p1MidY       = useTransform(progress, [0, 0.22], ["0px", "-80px"]);
-  const p1MidScale   = useTransform(progress, [0, 0.22], [1.06, 0.94]);
+  const p1MidY = useTransform(progress, [0, 0.22], ["0px", "-80px"]);
+  const p1MidScale = useTransform(progress, [0, 0.22], [1.06, 0.94]);
 
-  const p1FgOpacity  = useTransform(progress, [0, 0.04, 0.14, 0.22], [0, 1, 1, 0]);
-  const p1FgY        = useTransform(progress, [0, 0.22], ["0px", "-130px"]);
-  const p1FgBlur     = useTransform(progress, [0.10, 0.22], [0, 8]);
+  const p1FgOpacity = useTransform(progress, [0, 0.04, 0.14, 0.22], [0, 1, 1, 0]);
+  const p1FgY = useTransform(progress, [0, 0.22], ["0px", "-130px"]);
+  const p1FgBlur = useTransform(progress, [0.10, 0.22], [0, 8]);
 
-  const hintOpacity  = useTransform(progress, [0, 0.05, 0.09], [1, 1, 0]);
+  const hintOpacity = useTransform(progress, [0, 0.05, 0.09], [1, 1, 0]);
 
   // ─── PANEL 2  (26 → 52%)  "CLEARED FOR TAKEOFF" ──────────────────────────
-  const p2BgOpacity  = useTransform(progress, [0.26, 0.31, 0.46, 0.52], [0, 1, 1, 0]);
-  const p2BgY        = useTransform(progress, [0.26, 0.52], ["30px", "-30px"]);
+  const p2BgOpacity = useTransform(progress, [0.26, 0.31, 0.46, 0.52], [0, 1, 1, 0]);
+  const p2BgY = useTransform(progress, [0.26, 0.52], ["30px", "-30px"]);
 
   const p2MidOpacity = useTransform(progress, [0.27, 0.33, 0.47, 0.52], [0, 1, 1, 0]);
-  const p2MidY       = useTransform(progress, [0.27, 0.52], ["60px", "-60px"]);
-  const p2MidScale   = useTransform(progress, [0.27, 0.52], [0.96, 1.04]);
+  const p2MidY = useTransform(progress, [0.27, 0.52], ["60px", "-60px"]);
+  const p2MidScale = useTransform(progress, [0.27, 0.52], [0.96, 1.04]);
 
-  const p2FgOpacity  = useTransform(progress, [0.30, 0.36, 0.47, 0.52], [0, 1, 1, 0]);
-  const p2FgY        = useTransform(progress, [0.30, 0.52], ["90px", "-90px"]);
+  const p2FgOpacity = useTransform(progress, [0.30, 0.36, 0.47, 0.52], [0, 1, 1, 0]);
+  const p2FgY = useTransform(progress, [0.30, 0.52], ["90px", "-90px"]);
 
   // Horizontal shear — "Cleared" from left, "Takeoff" from right
-  const p2LeftX      = useTransform(progress, [0.27, 0.38], ["-50px", "0px"]);
-  const p2RightX     = useTransform(progress, [0.27, 0.38], ["50px", "0px"]);
+  const p2LeftX = useTransform(progress, [0.27, 0.38], ["-50px", "0px"]);
+  const p2RightX = useTransform(progress, [0.27, 0.38], ["50px", "0px"]);
 
   // ─── PANEL 3  (54 → 79%)  "SKY IS NOT THE LIMIT" ─────────────────────────
-  const p3BgOpacity  = useTransform(progress, [0.54, 0.60, 0.72, 0.79], [0, 1, 1, 0]);
-  const p3BgY        = useTransform(progress, [0.54, 0.79], ["30px", "-30px"]);
+  const p3BgOpacity = useTransform(progress, [0.54, 0.60, 0.72, 0.79], [0, 1, 1, 0]);
+  const p3BgY = useTransform(progress, [0.54, 0.79], ["30px", "-30px"]);
 
   const p3MidOpacity = useTransform(progress, [0.55, 0.62, 0.73, 0.79], [0, 1, 1, 0]);
-  const p3MidY       = useTransform(progress, [0.55, 0.79], ["60px", "-60px"]);
-  const p3MidScale   = useTransform(progress, [0.55, 0.79], [0.96, 1.05]);
+  const p3MidY = useTransform(progress, [0.55, 0.79], ["60px", "-60px"]);
+  const p3MidScale = useTransform(progress, [0.55, 0.79], [0.96, 1.05]);
 
-  const p3FgOpacity  = useTransform(progress, [0.58, 0.64, 0.71, 0.79], [0, 1, 1, 0]);
-  const p3FgY        = useTransform(progress, [0.58, 0.79], ["90px", "-90px"]);
+  const p3FgOpacity = useTransform(progress, [0.58, 0.64, 0.71, 0.79], [0, 1, 1, 0]);
+  const p3FgY = useTransform(progress, [0.58, 0.79], ["90px", "-90px"]);
 
   // Opposite shear — "Sky is" from right, "not the limit" from left
-  const p3RightX     = useTransform(progress, [0.55, 0.67], ["60px", "0px"]);
-  const p3LeftX      = useTransform(progress, [0.55, 0.67], ["-60px", "0px"]);
+  const p3RightX = useTransform(progress, [0.55, 0.67], ["60px", "0px"]);
+  const p3LeftX = useTransform(progress, [0.55, 0.67], ["-60px", "0px"]);
 
   // ─── PANEL 4  (81 → 100%)  SKYCOACH REVEAL ────────────────────────────────
-  const p4BgOpacity  = useTransform(progress, [0.81, 0.87, 0.97, 1], [0, 1, 1, 1]);
-  const p4BgY        = useTransform(progress, [0.81, 0.97], ["24px", "0px"]);
-  const p4BgScale    = useTransform(progress, [0.81, 0.96], [0.94, 1]);
+  const p4BgOpacity = useTransform(progress, [0.81, 0.87, 0.97, 1], [0, 1, 1, 1]);
+  const p4BgY = useTransform(progress, [0.81, 0.97], ["24px", "0px"]);
+  const p4BgScale = useTransform(progress, [0.81, 0.96], [0.94, 1]);
 
   // Camera-pullback: title grows from 0.88 → 1 as it rises
   const p4MidOpacity = useTransform(progress, [0.82, 0.89, 0.98, 1], [0, 1, 1, 1]);
-  const p4MidY       = useTransform(progress, [0.82, 0.97], ["60px", "0px"]);
-  const p4MidScale   = useTransform(progress, [0.82, 0.97], [0.88, 1.0]);
+  const p4MidY = useTransform(progress, [0.82, 0.97], ["60px", "0px"]);
+  const p4MidScale = useTransform(progress, [0.82, 0.97], [0.88, 1.0]);
 
-  const p4FgOpacity  = useTransform(progress, [0.87, 0.94, 1], [0, 1, 1]);
-  const p4FgY        = useTransform(progress, [0.87, 0.97], ["40px", "0px"]);
+  const p4FgOpacity = useTransform(progress, [0.87, 0.94, 1], [0, 1, 1]);
+  const p4FgY = useTransform(progress, [0.87, 0.97], ["40px", "0px"]);
 
-  const vignetteOp   = useTransform(progress, [0, 0.15, 0.5], [0.6, 0.4, 0.65]);
+  const vignetteOp = useTransform(progress, [0, 0.15, 0.5], [0.6, 0.4, 0.65]);
 
   return (
     <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
@@ -153,14 +153,14 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* MID — headline with horizontal word shear */}
         <motion.div style={{ opacity: p2MidOpacity, y: p2MidY, scale: p2MidScale }}>
           <div className="overflow-hidden leading-none">
-            <motion.span 
+            <motion.span
               className="text-white uppercase"
               style={{ x: p2LeftX, display: "inline-block", fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
               Cleared{" "}
             </motion.span>
-            <motion.span 
+            <motion.span
               style={{
-                x: p2RightX, 
+                x: p2RightX,
                 display: "inline-block",
                 fontFamily: displayFont,
                 fontSize: "clamp(3.5rem, 10vw, 9rem)",
@@ -177,7 +177,7 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         <motion.p style={{ opacity: p2FgOpacity, y: p2FgY }}
           className="mt-6 text-lg md:text-xl text-white/50 font-light max-w-xl leading-relaxed">
           A pilot&apos;s mindset. An engineer&apos;s edge.<br />
-          <span className="text-white/30">Precision, discipline, situational awareness —</span><br />
+          <span className="text-white/30">Precision, discipline, situational awareness </span><br />
           in the cockpit and in code.
         </motion.p>
       </div>
@@ -195,16 +195,16 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* MID — headline with reverse horizontal shear */}
         <motion.div style={{ opacity: p3MidOpacity, y: p3MidY, scale: p3MidScale }}>
           <div className="overflow-hidden leading-none text-right">
-            <motion.span 
+            <motion.span
               className="text-white uppercase"
               style={{ x: p3RightX, display: "inline-block", fontFamily: displayFont, fontSize: "clamp(3.5rem, 10vw, 9rem)" }}>
               Sky is
             </motion.span>
           </div>
           <div className="overflow-hidden leading-none">
-            <motion.span 
+            <motion.span
               style={{
-                x: p3LeftX, 
+                x: p3LeftX,
                 display: "inline-block",
                 fontFamily: displayFont,
                 fontSize: "clamp(3.5rem, 10vw, 9rem)",
@@ -220,9 +220,8 @@ export const Overlay = ({ progress }: { progress: MotionValue<number> }) => {
         {/* FG — subtext */}
         <motion.p style={{ opacity: p3FgOpacity, y: p3FgY }}
           className="mt-6 text-lg md:text-xl text-white/50 font-light max-w-xl leading-relaxed">
-          Building AI tools that will define<br />
-          <span className="text-white/30">the future of aviation —</span><br />
-          one system at a time.
+          Because a Great Pilot<br />
+          <span className="text-white/30"> Never Stops Learning.</span><br />
         </motion.p>
       </div>
 

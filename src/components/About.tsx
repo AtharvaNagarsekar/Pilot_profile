@@ -18,28 +18,28 @@ export const About = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   // Parallax elements
-  const blob1Y  = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const blob2Y  = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const headerY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-6%"]);
-  const lineY   = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const lineY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   const languages = ["English", "Hindi", "Marathi", "Konkani"];
 
   const education = [
     { degree: "B.Tech in AI & Data Science", inst: "Dwarkadas J Sanghvi College of Engineering", year: "2022–2026", grade: "CGPA: 9.35", active: true },
-    { degree: "Grade 12 (HSC)",               inst: "Sathaye College",                            year: "2022",       grade: "82.67%",    active: false },
-    { degree: "Grade 10 (ICSE)",              inst: "Parle Tilak Vidyalaya",                      year: "2020",       grade: "97.4%",     active: false },
+    { degree: "Grade 12 (HSC)", inst: "Sathaye College", year: "2020-2022", grade: "82.67%", active: false },
+    { degree: "Grade 10 (ICSE)", inst: "Parle Tilak Vidyalaya", year: "2016-2020", grade: "97.4%", active: false },
   ];
 
   const achievements = [
     {
-      icon: Trophy, title: "S4DS DataThon — Finalist",
-      desc: "Led a team of 4 to design and develop a working RL model prototype under tight deadlines. Guided team to the finalist stage among 500+ participants.",
+      icon: Trophy, title: "S4DS DataThon",
+      desc: "Led a team to design and develop a working RL model prototype under tight deadlines. Guided team to the finalist stage among 500+ participants.",
       tag: "Hackathon", color: "from-amber-400/10 to-orange-400/5 border-amber-400/20", iconColor: "text-amber-400",
     },
     {
       icon: Star, title: "Best Intelligent System — AITA 2025",
-      desc: "Led research on LLMs, TTS, and image generation for VidGyan — automated educational video creation. Won Best Paper in the Intelligent Systems track.",
+      desc: "Led research on LLMs, TTS, and image generation for VidGyan;- an automated educational video creation. Won the Best Paper in the Intelligent Systems track.",
       tag: "Research Award", color: "from-sky-400/10 to-cyan-400/5 border-sky-400/20", iconColor: "text-sky-400",
     },
   ];
@@ -81,19 +81,15 @@ export const About = () => {
             <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.7)]" />
             <div className="text-lg text-slate-600 dark:text-white/65 leading-[1.95] font-light space-y-5">
               <p>
-                I&apos;m a highly motivated aspiring commercial pilot with a strong commitment to aviation safety
-                and operational discipline. I excel in high-responsibility environments requiring calm
-                decision-making, effective communication, and strong situational awareness.
+                I am a highly motivated aspiring commercial pilot with an unwavering commitment to aviation safety and operational discipline. I excel in high responsibility environments requiring calm decision making, effective communication, and acute situational awareness.
               </p>
               <p>
-                Alongside my pursuit of wings, I&apos;m completing a B.Tech in Artificial Intelligence &
-                Data Science at DJSCE (CGPA 9.35) — positioning me as the next-generation aviator who
-                can harness AI to redefine how pilots train, communicate, and operate.
+                Dedicated to continuous learning and teamwork, I uphold the highest standards of professionalism in flight operations. Simultaneously, pursuing my B.Tech in Artificial Intelligence & Data Science at DJSCE (CGPA 9.35) positions me as a next-generation aviator,ready to leverage technology to revolutionize the aviation industry.
               </p>
               <div className="pt-4">
                 <a
-                  href="/resume.pdf"
-                  download="Atharva_Nagarsekar_CV.pdf"
+                  href="/Resume/Atharva_Nagarsekar_Resume.pdf"
+                  download="Atharva_Nagarsekar_Resume.pdf"
                   className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-sky-600 dark:bg-sky-500/10 text-white dark:text-sky-400 border border-sky-600 dark:border-sky-500/20 hover:bg-sky-700 dark:hover:bg-sky-500/20 rounded-full font-semibold transition-all duration-300 shadow-[0_10px_20px_rgba(2,132,199,0.15)] dark:shadow-[0_4px_14px_0_rgba(56,189,248,0.1)] hover:shadow-[0_15px_30px_rgba(2,132,199,0.25)] dark:hover:shadow-[0_6px_20px_rgba(56,189,248,0.2)] hover:-translate-y-0.5"
                 >
                   <Briefcase size={18} />
@@ -121,21 +117,22 @@ export const About = () => {
                   lineColor: "border-sky-400/30 hover:border-sky-400/60",
                   textColor: "text-sky-400/80",
                   bullets: [
-                    "E-commerce recommendation system via collaborative filtering (+15% CTR)",
-                    "Optimized data pipeline, cutting model training time by 30%",
+                    "Analyzed large scale datasets to identify critical trends, facilitating structured and data driven mission decisions.",
+                    "Optimized internal workflows and processing pipelines, achieving a 30% reduction in execution time.",
+                    "Collaborated in high-stakes team environments to engineer systematic solutions for complex problem solving.",
                   ],
                 },
                 {
-                  title: "Volunteer — Project Lead",
+                  title: "Project Lead",
                   company: "Rishmita Foundations NGO · Mumbai",
-                  period: "",
+                  period: "2020 – 2022",
                   dotColor: "bg-emerald-400",
                   glow: "shadow-[0_0_10px_rgba(52,211,153,0.4)]",
                   lineColor: "border-white/10 hover:border-white/20",
                   textColor: "text-emerald-400/80",
                   bullets: [
-                    "Led community e-waste collection initiative in Mumbai",
-                    "Supported elderly welfare outreach and community healthcare",
+                    "Led a community-wide e-waste collection initiative in Mumbai, promoting environmental stewardship and sustainability awareness.",
+                    "Directed elderly welfare outreach programs, coordinating community care and ensuring access to essential medical support.",
                   ],
                 },
               ].map((exp, i) => (

@@ -51,7 +51,7 @@ export const Contact = () => {
           {/* --- LEFT COLUMN: IMAGE 1 LAYOUT --- */}
           <div className="flex flex-col items-center text-center space-y-8">
             <div className="space-y-6">
-              <h2 
+              <h2
                 className="text-6xl md:text-8xl font-bold text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br dark:from-white dark:to-white/40 uppercase tracking-normal"
                 style={{ fontFamily: "var(--font-bebas, impact, sans-serif)" }}
               >
@@ -62,14 +62,14 @@ export const Contact = () => {
                 Whether it&apos;s about aviation, AI systems, or a shared passion for flight — I&apos;d love to hear from you.
               </p>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
               <a
-                href="mailto:atharvanagarsekar17@gmail.com"
+                href="mailto:nagarsekaratharva@gmail.com"
                 className="bg-[#fbbf24] hover:bg-[#f59e0b] text-black px-6 py-3.5 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 w-full sm:w-auto shadow-[0_0_20px_rgba(251,191,36,0.3)] hover:shadow-[0_0_30px_rgba(251,191,36,0.5)]"
               >
                 <Mail size={18} />
-                <span>atharvanagarsekar17@gmail.com</span>
+                <span>nagarsekaratharva@gmail.com</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/atharva-nagarsekar-9699a9207"
